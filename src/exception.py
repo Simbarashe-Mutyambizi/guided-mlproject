@@ -5,7 +5,8 @@ Created on Thu Mar 28 14:43:19 2024
 @author: SWRM
 """
 
-import sys  
+import sys 
+#from src.logger import logging 
 
 #this is a global function to be used in the class below
 def error_message_detail(error,error_detail:sys):
