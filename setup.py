@@ -8,6 +8,12 @@ Created on Wed Mar 27 17:19:57 2024
 from setuptools import find_packages,setup
 from typing import List
 
+'''
+find_packages is used to look through you project's folder
+for valid packages, which are folder that have
+__init__.py
+'''
+
 HYPEN_E_DOT="-e ."
 
 def get_requirements(file_path:str)->List[str]:

@@ -28,3 +28,30 @@ def save_object(file_path, obj):
 
     except Exception as e:
         raise CustomException(e, sys)
+        
+
+#model evaluation function
+def evaluate_models(X_train,y_train,X_test,y_test,models):
+    try:
+        report={}
+        for i in range(len(list(models))):
+            model=list(models.values())[i]
+            model.fit(X_train,y_train)
+            y_train_predictions=model.predict(X_train)
+            y_test_predictions=model.predict(X_test)
+            
+            train_model_score=r2_score(y_train,y_train_predictions)
+            test_model_score=r2_score(y_test,y_test_predictions)
+            report[list(models.keys())[i]]=test_model_score
+        return report
+    except Exception as e:
+        raise CustomException(e,sys)
+        
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            return pickle.load(file_obj)
+
+    except Exception as e:
+        raise CustomException(e, sys)        
+        
